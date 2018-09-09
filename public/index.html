@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guru's ChatApp</title>
+    <link type = "text/css" href = "/css/styles.css"/>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        var socket = io();
+        
+        function runScript(e){
+            if (e.keyCode == 13) {
+                send();
+            }
+        }
+
+        function send(){
+            if($('#userName').val() && $('#chatMsg').val()){
+                $('#err1').hide(); 
+                $('#err2').hide();
+                socket.emit('chat message', $('#userName').val()+':'+$('#chatMsg').val());
+                $('#chatMsg').val('');
+            }else if($('#userName').val()){
+                $('#err2').show();
+                $('#err1').hide(); 
+            }else{
+                $('#err1').show();
+                $('#err2').hide(); 
+            }
+        }
+        socket.on("chat message1", function(dataFromServer){
+            var chatHistory = '<div><span style="font-style:italic;font-weight:bold ;"></span>';
+            chatHistory = chatHistory + '<span>';
+            chatHistory = chatHistory+ '<b>'+dataFromServer.split(":")[0]+":</b>";
+            for(i=1;i<dataFromServer.split(":").length;i++){
+                chatHistory = chatHistory + dataFromServer.split(":")[i];
+            }
+            chatHistory = chatHistory + '</span></div>';
+            $($.parseHTML(chatHistory)).appendTo($('#chatHistory'));
+            console.log(dataFromServer);
+        });
+        
+        Notification.requestPermission(function(status) {
+            console.log('Notification permission status:', status);
+        });
+    </script>
+</head>
+<body style="background-color: #f4f4f4;">
+    <div id="header" style="height: 150px;">
+        <h1>Chat Application!!!! </h1>
+    </div>
+    <b>UserName: </b><input id="userName" type = "text" name="userName" /> 
+    <span id="err1" style="color:red; display:none;">'Enter Your User Name to continue!!'</span>
+    <span id="err2" style="color:red; display:none;">'Enter message to send!!'</span>
+    <div id="content" style="height: 600px;width:75%; ">
+        <div style="border: 1px solid; margin: 2px; border-radius: 16px">
+            <div id ="chatHistory" style="height: 450px; padding: 16px; overflow: auto; ">
+                
+            </div>
+        </div>
+        <div style="height: 150px;" style="height: 100px;width:75%; border: 1px solid;">
+            <input id="chatMsg" onkeypress="return runScript(event)" type = "textarea" name="chatText" style="height:100px; border-radius: 16px; width: 85%" />
+            <input value="Send" onclick="send();" type = "button" name="sendButton" style="height:100px; border-radius: 16px; width: 14%"  />
+        </div>
+    </div>
+    <div id="footer" style="height: 150px;"></div>
+</body>
+</html>
