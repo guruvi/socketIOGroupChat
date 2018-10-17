@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-var https = require('https');
+var https = require('http');
 
 var httpsPort = 3001;
 
@@ -10,7 +10,7 @@ const options = {
     cert: fs.readFileSync('./server.crt', 'utf8') 
 };
 
-var secureServer = https.createServer(options, app).listen(httpsPort, () => {  
+var secureServer = https.createServer(app).listen(httpsPort, () => {  
     console.log(">> CentraliZr listening at port " + httpsPort);  
 });  
 
