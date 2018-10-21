@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Babbelen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../script/GuestLogin.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a class="logo" title="Babbelen" href="#">
+            <img id="headerLogo" src="../images/Untitled.png" title="Babbelen">
+            </a>
+        </div>
+    </header>
+    <section>
+        <div id="yourName">
+            <div id="userDetailsEnter">
+                <span id="nickName">Enter your nick name: </span>
+                <input id="userName" type="text" name="userName">
+                <input type="button" id="userGoAction" value="Go!" onclick="GoButtonClick();">
+            </div>
+            <div id="enteredUserDetails">
+                Entered as: <span id="enteredUserName"></span>
+                <span id="changeUser" onclick="toggleDisplay();">Change</span>
+            </div>
+            <div id="numberOfActiverUsers"></div>
+        </div>
+        <div id="content" >
+            <div id="chatArea"></div>
+        </div>
+        <div id="UserTextArea">
+            <input placeholder="Type a text and press return key to send." type="textarea" name="textarea" id="chatMsg" onkeypress="return runScript(event)">
+        </div>
+    </section>
+    <footer>
+        <!--<p><b><i>Author: GuruVi</i></b>Babbellen &copy;All Rights reserved. </p>-->
+        <span class="author">Author: GuruVi</span>
+        <span class="copyrights">Babbellen &copy;All Rights reserved. </span>
+    </footer>
+</body>
+</html>

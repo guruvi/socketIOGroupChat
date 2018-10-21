@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body{
+    background-image: url('../images/background.jpg');
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#headerLogo{
+    height: 100%;
+    width: 100%;
+}
+
+header{
+    height: 8%;
+    margin: 10px;
+    width: 100%;
+} 
+
+#UserTextArea input{
+    width: 96%;
+    margin:2% 2% 2% 2%;
+    overflow-y: scroll;
+    height: 35px;
+    border-radius: 30px;
+    margin-inline-start: 2px;
+    resize: none; /* Remove this if you want the user to resize the textarea */
+}
+
+#yourName{
+    height:7%;
+    margin: 1%;
+    color: white;
+}
+#userName{
+    border-radius: 5px;
+    height: 125% ;
+    width: 42%;
+}
+#nickName{
+    color: white;
+}
+
+header.logo{
+    position: absolute;
+}
+#chatArea{
+    height: 400px;
+    overflow:auto;
+    max-height: 60%
+}
+.chatText{
+    color: #ffffff;
+}
+
+.name-left{
+    color: red;
+}
+
+.name-right{
+    color: green;
+}
+header a:visited{
+    text-decoration: none;
+
+}
+
+.align-left{
+    border: 2px solid; 
+    margin: 5% 15% 2% 1%;
+    padding: 6px;
+    border-radius: 16px;
+    border-color: darkgrey;
+}
+
+.align-right{
+    border: 2px solid; 
+    margin: 5% 2% 2% 15%;
+    padding: 6px;
+    border-radius: 16px;
+    border-color: darkgrey;
+}
+
+#content{
+    height: 60%;
+}
+
+footer{
+    margin-top: 5%;
+}
+
+footer .author{
+    height: 5%;
+    color: darkgreen;
+    margin-right: 2%;
+}
+
+footer .copyrights{
+    height: 5%;
+    color: red;
+}
+
+section{
+    height: 60%;
+    display:block;
+}
+
+#userGoAction{
+    width: 10%;
+    border-radius: 10px;
+    margin: 2% 0 0 0;
+    color: red;
+    background-color: transparent;
+}
+
+#changeUser{
+    text-decoration: underline;
+    color:red;
+}

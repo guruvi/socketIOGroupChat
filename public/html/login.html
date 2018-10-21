@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Guru's ChatApp</title>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        function login(){
+            if($('#userName').val()){
+                var currentDomain = location.href.split('/')[0];
+                location.href = currentDomain+"/index.html?userName="+$('#userName').val();
+            }else{
+                $('#err1').show();
+            }
+        }
+    </script>
+</head>
+<body style="background-color: #f4f4f4;">
+    <div id="header" style="height: 150px;">
+        <h1>Chat Application!!!! </h1>
+    </div>
+    <div>
+        <b>UserName: </b><input id="userName" type = "text" name="userName" /> 
+        <input type="button" value="Log in!" onclick="login();"/>
+        <span id="err1" style="color:red; display:none;">'Enter Your User Name to continue!!'</span>
+    </div>
+</body>
+</html>
