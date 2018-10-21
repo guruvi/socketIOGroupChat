@@ -36,7 +36,7 @@ io.on('connection', (socket)=>{
     });
 
     socket.on('getGuestNumber', (msg)=>{
-        io.emit('guestNumberFromServer',msg+'/_/'+'guest0'+i);
+        io.emit('guestNumberFromServer',msg+'0'+i);
     });
 
     socket.on('disconnect', ()=>{
