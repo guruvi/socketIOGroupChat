@@ -67,8 +67,7 @@ socket.on("chat message1", function(dataFromServer){
     sentMsg = sentMsg + '</div></div>';
     $($.parseHTML(sentMsg)).appendTo($('#chatArea'));
     
-    var offsetTopValue = $('#rxMsgCount'+rxMsgCount).offsetTop;
-    $('#chatArea').scrollTop = offsetTopValue;
+    $('#chatArea').scrollTop($('#chatArea').scrollTop()+1000);
 });
 
 socket.on('guestNumberFromServer',function(dataFromServer){
