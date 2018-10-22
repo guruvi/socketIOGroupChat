@@ -5,11 +5,13 @@ body{
     font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
     line-height: 1.5;
+    overflow-y: hidden;
 }
 
 #headerLogo{
-    height: 100%;
-    width: 100%;
+    max-height: 50px;
+    max-width: 185px;
+    text-align: center;
 }
 
 header{
@@ -46,7 +48,7 @@ header.logo{
     position: absolute;
 }
 #chatArea{
-    height: 400px;
+    height: 310px;
     overflow:auto;
     max-height: 60%
 }
@@ -80,6 +82,11 @@ header a:visited{
     padding: 6px;
     border-radius: 16px;
     border-color: darkgrey;
+}
+
+
+#container{
+    text-align: center;
 }
 
 #content{
